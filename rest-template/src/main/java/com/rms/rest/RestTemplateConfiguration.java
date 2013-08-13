@@ -1,11 +1,11 @@
-package com.rms.workerservice;
+package com.rms.rest;
 
    
 import com.yammer.dropwizard.config.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class WorkerServiceConfiguration extends Configuration {
+public class RestTemplateConfiguration extends Configuration {
     @NotEmpty
     @JsonProperty
     private String template;

@@ -1,6 +1,6 @@
-package com.rms.workerservice.resource;
+package com.rms.rest.resource;
 
-import com.rms.workerservice.core.State;
+import com.rms.rest.core.State;
 import com.google.common.base.Optional;
 import com.yammer.metrics.annotation.Timed;
 
@@ -9,16 +9,17 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+
 import java.util.concurrent.atomic.AtomicLong;
 
-@Path("/worker-service")
+@Path("/rest-template")
 @Produces(MediaType.APPLICATION_JSON)
-public class WorkerServiceResource {
+public class RestTemplateResource {
     private final String template;
     private final String defaultName;
     private final AtomicLong counter;
 
-    public WorkerServiceResource(String template, String defaultName) {
+    public RestTemplateResource(String template, String defaultName) {
         this.template = template;
         this.defaultName = defaultName;
         this.counter = new AtomicLong();

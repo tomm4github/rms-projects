@@ -1,4 +1,4 @@
-package com.rms.fileblast;
+package com.rms.rest.test;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

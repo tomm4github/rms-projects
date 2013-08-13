@@ -1,4 +1,4 @@
-package com.rms.workerservice.health;
+package com.rms.rest.health;
 
 import com.yammer.metrics.core.HealthCheck;
 

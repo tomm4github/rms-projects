@@ -1,4 +1,4 @@
-package com.rms.workerservice.core;
+package com.rms.rest.core;
 
 public class State {
     private final long id;
