@@ -1,5 +1,6 @@
 package com.rms.rest;
 
+import com.rms.rest.health.MemoryHealthCheck;
 import com.rms.rest.health.TemplateHealthCheck;
 import com.rms.rest.resource.RestTemplateResource;
 import com.yammer.dropwizard.Service;
@@ -20,9 +21,10 @@ public class RestTemplate extends Service<RestTemplateConfiguration> {
     public void run(RestTemplateConfiguration configuration,
                     Environment environment) {
     	final String template = configuration.getTemplate();
+    	final double memoryCeiling = Double.parseDouble(configuration.getMemoryCeiling());
         final String defaultName = configuration.getDefaultName();
         environment.addResource(new RestTemplateResource(template, defaultName));
-        environment.addHealthCheck(new TemplateHealthCheck(template));
+        environment.addHealthCheck(new MemoryHealthCheck(memoryCeiling));
     }
 
 }
