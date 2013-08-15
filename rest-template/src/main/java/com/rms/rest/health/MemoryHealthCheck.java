@@ -4,17 +4,14 @@ import com.yammer.metrics.core.HealthCheck;
 
 import org.hyperic.sigar.Mem;
 import org.hyperic.sigar.Sigar;
-import org.hyperic.sigar.jmx.SigarMem;
-
-
 
 
 public class MemoryHealthCheck extends HealthCheck {
-    private final double memoryCeiling;
+    private final double memoryFloor;
 
-    public MemoryHealthCheck(double memoryCeiling) {
-        super("memoryCeiling");
-        this.memoryCeiling = memoryCeiling;
+    public MemoryHealthCheck(double memoryFloor) {
+        super("memoryFloor");
+        this.memoryFloor = memoryFloor;
     }
 
     @Override
@@ -36,12 +33,12 @@ public class MemoryHealthCheck extends HealthCheck {
             System.out.println("Free Memory: "
                     + freeMem + " GB");
             System.out.println("MemFloor: "
-                    + memoryCeiling + " GB");
+                    + memoryFloor + " GB");
             System.out.println("****************\n");
             
             
        
-        if ( freeMem < memoryCeiling) {
+        if ( freeMem < memoryFloor) {
             return Result.unhealthy("* FAILURE: Memory usage critical. Free memory: " +
             		freeMem+ " GB");
         }
